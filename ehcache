@@ -1,0 +1,10 @@
+  <!--注解的方式来使用缓存管理-->
+  <cache:annotation-driven cache-manager="cacheManager"/>
+  <!--配置缓存管理器-->
+  <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+      <property name="cacheManager" ref="cacheManagerFacroty"/>
+  </bean>
+  <!--配置ehcache文件路径-->
+  <bean id="cacheManagerFacroty" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+      <property name="configLocation" value="classpath:ehcache.xml"/>
+  </bean>
