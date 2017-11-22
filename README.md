@@ -1,3 +1,3 @@
 # hello-world
 my first demo
-I just have a test!
+I just have a try!
