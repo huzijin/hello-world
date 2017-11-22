@@ -1,0 +1,22 @@
+    <!-- 数据源-->
+    <bean id="jedis" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="hostName" value="localhost"/>
+        <property name="port" value="6379"/>
+    </bean>
+    <!--类似于sqlsession核心操作类-->
+    <bean id="template" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="jedis"/>
+    </bean>
+    <!--配置缓存-->
+    <cache:annotation-driven cache-manager="cacheManager"/>
+    <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager" >
+        <constructor-arg index="0">
+            <ref bean="template"></ref>
+        </constructor-arg>
+        <property name="cacheNames">
+            <set>
+                <value>huhongye</value>
+                <value>wuyan</value>
+            </set>
+        </property>
+    </bean>
