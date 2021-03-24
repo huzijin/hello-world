@@ -1,3 +1,2 @@
-# hello-world
-my first demo
-I just have a try!
+# 自己的备忘录
+用于记录自己的学习
